@@ -4,22 +4,46 @@
     <meta charset="UTF-8" />
     <meta
       name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Bookshelf Apps</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <!-- font -->
     <link
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
-      rel="stylesheet" />
+      rel="stylesheet"
+    />
+    <!-- feather icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <!-- style css -->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- navbar start -->
     <header class="head_bar">
-      <h1 class="head_bar__title">Bookshelf Apps</h1>
+      <a class="head_bar_title" href="#home">Bookshelf</a>
+      <nav class="navbar">
+        <a href="#home">Home</a><a href="#wishlist">Wishlist</a
+        ><a href="#catalog">Catalog</a><a href="#about">About</a>
+      </nav>
     </header>
+    <!-- navbar end -->
+
+    <!-- hero section start -->
+    <section id="home" class="hero_section">
+      <div class="content">
+        <h1>Welcome to Bookshelf</h1>
+        <p>Your Personal Book Collection</p>
+        <a href="#catalog" class="cta-btn">Explore Catalog</a>
+      </div>
+    </section>
+    <!-- hero section end -->
+
     <main>
+      <!-- wishlist books section start-->
+      <h2 id="wishlist">Wishlist Books</h2>
       <section class="input_section">
-        <h2>Masukkan Buku Baru</h2>
         <form id="inputBook">
           <div class="input">
             <label for="inputBookTitle">Judul</label>
@@ -43,8 +67,9 @@
         </form>
       </section>
 
+      <!-- cari buku wishlist -->
       <section class="search_section">
-        <h2>Cari Buku (Opsional)</h2>
+        <h3>Cari Buku (Opsional)</h3>
         <form id="searchBook">
           <label for="searchBookTitle">Judul</label>
           <input id="searchBookTitle" type="text" />
@@ -53,17 +78,17 @@
         </form>
       </section>
 
+      <!-- cari buku -->
       <div class="search-container">
-        <h2>Buku yang dicari</h2>
-
+        <h3>Buku yang dicari</h3>
         <div class="content-result">
           <div class="result" id="searchResults"></div>
         </div>
       </div>
 
+      <!-- buku belum selesai dibaca -->
       <section class="book_shelf">
-        <h2>Belum selesai dibaca</h2>
-
+        <h3>Belum selesai dibaca</h3>
         <div id="incompleteBookshelfList" class="book_list">
           <!-- <article class="book_item">
             <h3>Book Title</h3>
@@ -78,8 +103,9 @@
         </div>
       </section>
 
+      <!-- buku selesai dibaca -->
       <section class="book_shelf">
-        <h2>Selesai dibaca</h2>
+        <h3>Selesai dibaca</h3>
         <div id="completeBookshelfList" class="book_list">
           <!-- <article class="book_item">
             <h3>Book Title</h3>
@@ -92,7 +118,218 @@
           </article> -->
         </div>
       </section>
+      <!-- wishlist books section end-->
+
+      <!-- catalog section start -->
+      <h2 id="catalog">Catalog</h2>
+      <section class="catalog">
+        <!-- novel -->
+        <h3>Novel</h3>
+        <div class="h-scroll">
+          <article class="card-container">
+            <figure class="card">
+              <img src="novel/anak-semua-bangsa.png" alt="anaksemuabangsa" />
+              <figcaption class="hidden">
+                <h4>Anak Semua Bangsa</h4>
+                <p>Pramoedya Ananta, 1980</p>
+              </figcaption>
+            </figure>
+            <figure class="card">
+              <img src="novel/bumi-manusia.png" alt="bumimanusia" />
+              <figcaption class="hidden">
+                <h4>Bumi Manusia</h4>
+                <p>Pramoedya Ananta, 1980</p>
+              </figcaption>
+            </figure>
+            <figure class="card">
+              <img src="novel/jejak-langkah.png" alt="jejaklangkah" />
+              <figcaption class="hidden">
+                <h4>Jejak Langkah</h4>
+                <p>Pramoedya Ananta, 1985</p>
+              </figcaption>
+            </figure>
+            <figure class="card">
+              <img src="novel/laskar-pelangi.png" alt="laskarpelangi" />
+              <figcaption class="hidden">
+                <h4>Laskar Pelangi</h4>
+                <p>Andrea hirata, 2005</p>
+              </figcaption>
+            </figure>
+            <figure class="card">
+              <img src="novel/negeri5-menara.png" alt="negeri5-menara" />
+              <figcaption class="hidden">
+                <h4>Negeri 5 Menara</h4>
+                <p>Ahmad Fuadi, 2009</p>
+              </figcaption>
+            </figure>
+            <figure class="card">
+              <img
+                src="novel/ronggeng-dukuh-puruk.png"
+                alt="ronggeng-dukuh-puruk"
+              />
+              <figcaption class="hidden">
+                <h4>Ronggeng Dukuh Puruk</h4>
+                <p>Ahmad Tohari, 1982</p>
+              </figcaption>
+            </figure>
+          </article>
+        </div>
+      </section>
+      <section class="catalog">
+        <!-- komik -->
+        <h3>Komik</h3>
+        <div class="h-scroll">
+          <article class="card-container">
+            <figure class="card">
+              <img src="komik/blue-lock.png" alt="blue-lock" />
+              <figcaption class="hidden">
+                <h4>BlueLock</h4>
+                <p>Muneyuki Kaneshiro, Vol 1</p>
+              </figcaption>
+            </figure>
+            <figure class="card">
+              <img src="komik/conan.png" alt="conan" />
+              <figcaption class="hidden">
+                <h4>Conan</h4>
+                <p>Oayama Gosho, Vol 100</p>
+              </figcaption>
+            </figure>
+            <figure class="card">
+              <img src="komik/dragonball.png" alt="dragonball" />
+              <figcaption class="hidden">
+                <h4>DragonBall</h4>
+                <p>Akira toriyama, Vol 1</p>
+              </figcaption>
+            </figure>
+            <figure class="card">
+              <img src="komik/naruto.png" alt="naruto" />
+              <figcaption class="hidden">
+                <h4>Naruto</h4>
+                <p>Masashi Kishomoto, Vol 66</p>
+              </figcaption>
+            </figure>
+            <figure class="card">
+              <img src="komik/onepiece.png" alt="onepiece" />
+              <figcaption class="hidden">
+                <h4>One Piece</h4>
+                <p>Eiichiro Oda, Vol 106</p>
+              </figcaption>
+            </figure>
+            <figure class="card">
+              <img src="komik/slamdunk.png" alt="slamdunk" />
+              <figcaption class="hidden">
+                <h4>Slam Dunk</h4>
+                <p>Takehiko Inoue, Vol 1</p>
+              </figcaption>
+            </figure>
+          </article>
+        </div>
+      </section>
+      <section class="catalog">
+        <!-- biografi -->
+        <h3>Biografi</h3>
+        <div class="h-scroll">
+          <article class="card-container">
+            <figure class="card">
+              <img src="biografi/crime.png" alt="crime" />
+              <figcaption class="hidden">
+                <h4>Born a Crime</h4>
+                <p>Trevor Noah, 2016</p>
+              </figcaption>
+            </figure>
+            <figure class="card">
+              <img src="biografi/elon.png" alt="elon" />
+              <figcaption class="hidden">
+                <h4>Elon Musk</h4>
+                <p>Ashlee Vance, 2015</p>
+              </figcaption>
+            </figure>
+            <figure class="card">
+              <img src="biografi/gusdur.png" alt="gusdur" />
+              <figcaption class="hidden">
+                <h4>Gus Dur</h4>
+                <p>Greg Barton, 2002</p>
+              </figcaption>
+            </figure>
+            <figure class="card">
+              <img src="biografi/habibie.png" alt="habibie" />
+              <figcaption class="hidden">
+                <h4>Habibie</h4>
+                <p>R. Toto Sugiharto, 2017</p>
+              </figcaption>
+            </figure>
+            <figure class="card">
+              <img src="biografi/malala.png" alt="malala" />
+              <figcaption class="hidden">
+                <h4>I Am Malala</h4>
+                <p>Malala Yousafzai, 2013</p>
+              </figcaption>
+            </figure>
+            <figure class="card">
+              <img src="biografi/obama.png" alt="obama" />
+              <figcaption class="hidden">
+                <h4>Becoming</h4>
+                <p>Michelle Obama, 2018</p>
+              </figcaption>
+            </figure>
+            <figure class="card">
+              <img src="biografi/soekarno.png" alt="soekarno" />
+              <figcaption class="hidden">
+                <h4>Sukarno</h4>
+                <p>Anom Whani Wicaksana, 2018</p>
+              </figcaption>
+            </figure>
+          </article>
+        </div>
+      </section>
+      <!-- catalog section end -->
+
+      <!-- about section start -->
+      <h2>About</h2>
+      <section id="about" class="about">
+        <div class="about-container">
+          <article class="card-about">
+            <img src="image/management.png" alt="management" />
+            <h4>Comprehensive Catalog</h4>
+            <p>Save and manage the books you want to read.</p>
+          </article>
+          <article class="card-about">
+            <img src="image/brochure.png" alt="katalog" />
+            <h4>Personal Wishlist</h4>
+            <p>Explore a diverse collection of books across all genres.</p>
+          </article>
+          <article class="card-about">
+            <img src="image/file.png" alt="detail" />
+            <h4>Detailed Information</h4>
+            <p>Get detailed insights about your favorite books.</p>
+          </article>
+        </div>
+      </section>
     </main>
+
+    <!-- footer start -->
+
+    <footer>
+      <div class="socials">
+        <a href="#"><i data-feather="facebook"></i></a
+        ><a href="#"><i data-feather="twitter"></i></a
+        ><a href="#"><i data-feather="instagram"></i></a
+        ><a href="#"><i data-feather="github"></i></a>
+      </div>
+      <div class="links">
+        <a href="#home">Home</a><a href="#wishlist">Wishlist</a
+        ><a href="#catalog">Catalog</a><a href="#about">About</a>
+      </div>
+      <div class="credit">
+        <p>&copy; 2024 Bookshelf. All rights reserved.</p>
+      </div>
+    </footer>
+    <!-- footer end -->
+
+    <!-- feather icons -->
+    <script>
+      feather.replace();
+    </script>
     <script src="script.js"></script>
   </body>
 </html>
