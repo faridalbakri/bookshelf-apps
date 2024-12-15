@@ -1631,7 +1631,7 @@ a.ui-button:active,
 /* Tablet */
 @media (max-width: 768px) {
   .ui-datepicker {
-    width: 100%;
+    width: 70%;
   }
 }
 
