@@ -18,9 +18,9 @@ const spanButton = buttonSubmit.querySelector("span");
 
 checklistBook.addEventListener("change", function () {
   if (checklistBook.checked) {
-    spanButton.innerText = "Selesai dibaca";
+    spanButton.innerText = "selesai dibaca";
   } else {
-    spanButton.innerText = "Belum selesai dibaca";
+    spanButton.innerText = "belum selesai dibaca";
   }
 });
 
@@ -32,7 +32,7 @@ searchForm.addEventListener("submit", function (event) {
 
 const resetButton = document.getElementById("reset");
 resetButton.addEventListener("click", function (e) {
-  const searchContainer = document.querySelector(".search-container");
+  const searchContainer = document.querySelector(".searchContainer");
   const searchInput = document.getElementById("searchBookTitle");
   searchContainer.style.display = "none";
   searchInput.value = "";
@@ -48,6 +48,15 @@ function inputBooks() {
   const bookYear = parseInt(document.getElementById("inputBookYear").value);
   const isCompleted = document.getElementById("inputBookIsComplete").checked;
 
+  if (bookTitle === "" || bookAuthor === "" || isNaN(bookYear)) {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Semua data buku harus diisi!",
+    });
+    return;
+  }
+
   const generatedID = generatedId();
   const bookObject = generatedBookObject(
     generatedID,
@@ -60,6 +69,18 @@ function inputBooks() {
 
   saveBooksToLocalStorage();
   document.dispatchEvent(new Event(RENDER_EVENT));
+
+  // Tambahkan notifikasi SweetAlert
+  Swal.fire({
+    position: "center",
+    icon: "success",
+    title: "Buku berhasil ditambahkan!",
+    showConfirmButton: false,
+    timer: 1500,
+  });
+
+  // Reset form input setelah sukses menambahkan
+  document.getElementById("inputBook").reset();
 }
 
 function generatedId() {
@@ -92,8 +113,8 @@ function searchBooks() {
 }
 
 function displaySearchResults(results) {
-  const searchContainer = document.querySelector(".search-container");
-  const contentResult = document.querySelector(".content-result");
+  const searchContainer = document.querySelector(".searchContainer");
+  const contentResult = document.querySelector(".contentResult");
   const messageResult = document.getElementById("searchResults");
   messageResult.innerHTML = "";
 
@@ -104,6 +125,7 @@ function displaySearchResults(results) {
 
     contentResult.append(messageResult);
     searchContainer.style.display = "block";
+    searchContainer.style.border = "1px solid black";
   } else {
     for (const bookItem of results) {
       const bookElement = makeBooks(bookItem);
@@ -128,13 +150,13 @@ function renderBooks() {
 }
 
 function makeBooks(bookObject) {
-  const textTitle = document.createElement("h3");
+  const textTitle = document.createElement("h4");
   textTitle.innerText = "Title: " + bookObject.title;
 
-  const textAuthor = document.createElement("p");
+  const textAuthor = document.createElement("h4");
   textAuthor.innerText = "Author: " + bookObject.author;
 
-  const textYear = document.createElement("p");
+  const textYear = document.createElement("h4");
   textYear.innerText = "Year: " + bookObject.year;
 
   const textContainer = document.createElement("div");
@@ -142,7 +164,7 @@ function makeBooks(bookObject) {
   textContainer.append(textTitle, textAuthor, textYear);
 
   const container = document.createElement("div");
-  container.classList.add("book_item");
+  container.classList.add("bookItem");
   container.append(textContainer);
   container.setAttribute("id", `books-${bookObject.id}`);
 
@@ -215,9 +237,30 @@ function removeBookFromCompleted(bookId) {
 
   if (bookTarget === -1) return;
 
-  books.splice(bookTarget, 1);
-  saveBooksToLocalStorage();
-  document.dispatchEvent(new Event(RENDER_EVENT));
+  // Tambahkan SweetAlert untuk konfirmasi
+  Swal.fire({
+    title: "Apakah Anda yakin?",
+    text: "Buku ini akan dihapus dan tidak bisa dikembalikan!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Ya, hapus!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // Hapus buku jika pengguna mengonfirmasi
+      books.splice(bookTarget, 1);
+      saveBooksToLocalStorage();
+      document.dispatchEvent(new Event(RENDER_EVENT));
+
+      // Tampilkan notifikasi bahwa buku telah dihapus
+      Swal.fire({
+        title: "Terhapus!",
+        text: "Buku telah berhasil dihapus.",
+        icon: "success",
+      });
+    }
+  });
 }
 
 function undoBookFromCompleted(bookId) {
@@ -254,3 +297,23 @@ function getBooksFromLocalStorage() {
     document.dispatchEvent(new Event(RENDER_EVENT));
   }
 }
+
+// sidebar
+const navbar = document.querySelector(".navbar");
+document.querySelector("#bars").onclick = () => {
+  navbar.classList.toggle("active");
+};
+
+const bars = document.querySelector("#bars");
+document.addEventListener("click", function (e) {
+  if (!bars.contains(e.target) && !navbar.contains(e.target)) {
+    navbar.classList.remove("active");
+  }
+});
+
+$("#inputBookYear").datepicker({
+  dateFormat: "dd-mm-yy",
+  changeMouth: true,
+  changeYear: true,
+  yearRange: "-100:+10",
+});
