@@ -1,0 +1,500 @@
+:root {
+  --primary: #040d12;
+  --secondary: #183d3d;
+  --accent: #5c8374;
+  --neutral: #93b1a6;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 7rem;
+  font-family: "Poppins";
+}
+
+i {
+  color: var(--neutral);
+  width: 1.2rem;
+}
+
+body {
+  background-color: var(--accent);
+}
+
+header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  background-color: var(--primary);
+  padding: 1rem 5rem;
+  position: fixed;
+  z-index: 9999;
+  align-items: center;
+}
+
+header .logo {
+  font-size: 2.5rem;
+  font-style: italic;
+  font-weight: 900;
+  text-decoration: none;
+  color: var(--neutral);
+}
+
+header nav {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+header #bars {
+  display: none;
+  color: var(--neutral);
+}
+
+header nav a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: var(--neutral);
+}
+
+header nav a:hover,
+header #bars i:hover {
+  color: var(--secondary);
+}
+
+header nav a::after {
+  content: " ";
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid var(--secondary);
+  transform: scaleX(0);
+  transition: 0.5s linear;
+}
+
+header nav a:hover::after {
+  transform: scaleX(0.5);
+}
+
+.heroSection {
+  background-image: url(../image/bg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.heroSection .content {
+  width: 100%;
+  padding: 10%;
+}
+
+.heroSection .content h1 {
+  color: var(--primary);
+  font-size: 3rem;
+}
+
+.heroSection .content p {
+  color: var(--primary);
+}
+
+.heroSection .content a {
+  margin-top: 5rem;
+  display: inline-block;
+  padding: 1rem;
+  background-color: var(--secondary);
+  color: var(--neutral);
+  text-decoration: none;
+  border-radius: 0.5rem;
+  -webkit-box-shadow: 6px 6px 20px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 6px 6px 20px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 6px 6px 20px 0px rgba(0, 0, 0, 0.75);
+}
+
+main {
+  padding: 2rem 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-top: 3rem;
+}
+
+.inputSection,
+.searchSection,
+.searchContainer,
+.bookShelf,
+.catalog,
+.about {
+  background-color: var(--secondary);
+  padding: 2rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  margin: 0 auto;
+}
+
+form,
+.searchSection form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+form .input {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  text-align: center;
+  border: 1px solid var(--neutral);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+}
+
+form input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+  color: var(--neutral);
+}
+
+input::placeholder {
+  color: var(--neutral);
+}
+
+input[type="date"] {
+  color: var(--neutral);
+}
+
+.inputInline {
+  display: flex;
+  align-items: center;
+}
+
+.inputInline input {
+  width: 1rem;
+  margin-left: 0.5rem;
+  color: var(--neutral);
+}
+
+.inputInline label {
+  color: var(--neutral);
+  font-size: 0.8rem;
+}
+
+#bookSubmit,
+.btnSearch button {
+  background-color: var(--primary);
+  color: var(--neutral);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+#bookSubmit:hover,
+.input:hover,
+.btnSearch button:hover,
+.bookItem:hover,
+.green:hover,
+.red:hover {
+  border: 1px solid var(--neutral);
+  outline: 1px solid var(--neutral);
+}
+
+h3 {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.btnSearch {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.contentResult .result,
+.bookList {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.bookItem {
+  border: 1px solid var(--neutral);
+  max-width: 100%;
+  min-width: 33%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  display: flex;
+  flex: 1 1 33%;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+h4 {
+  color: var(--neutral);
+}
+
+.bookItem .action {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.bookItem .action button {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.green,
+.red {
+  background-color: var(--primary);
+  color: var(--neutral);
+}
+
+.hScroll {
+  margin-top: 2rem;
+  width: 100%;
+  overflow-x: scroll;
+  scrollbar-color: transparant transparant;
+}
+
+.hScroll::-webkit-scrollbar {
+  display: none;
+}
+
+.hScroll .cardContainer {
+  width: max-content;
+  display: flex;
+  gap: 1rem;
+}
+
+figure {
+  position: relative;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  overflow: hidden;
+}
+
+figure:hover {
+  filter: drop-shadow(3px 3px 3px black);
+}
+
+figure img {
+  border-radius: 0.5rem;
+  width: 100%;
+  display: block;
+}
+
+figcaption {
+  position: absolute;
+  bottom: -6rem;
+  background-color: rgba(0, 0, 0, 0.769);
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  text-align: center;
+  width: 100%;
+  color: var(--neutral);
+  transition: 0.5s;
+}
+
+figure:hover figcaption {
+  bottom: 0;
+}
+
+.aboutContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+}
+
+.aboutContainer article p {
+  color: var(--neutral);
+}
+
+footer {
+  background-color: var(--primary);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+footer .socials {
+  display: flex;
+  gap: 3rem;
+  cursor: pointer;
+}
+
+footer .links {
+  display: flex;
+  gap: 2rem;
+}
+
+footer .links a {
+  color: var(--neutral);
+  text-decoration: none;
+}
+
+footer .links a:hover,
+footer .socials i:hover {
+  color: var(--secondary);
+}
+
+footer .credit {
+  color: var(--neutral);
+}
+
+/* Media */
+
+/* Laptop */
+@media (max-width: 1920px) {
+  html {
+    font-size: 75%;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  html {
+    font-size: 75.5%;
+  }
+
+  .navbar {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: #fff;
+    width: 40%;
+    height: 100vh;
+  }
+
+  .navbar.active {
+    right: 0;
+  }
+
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .navbar a {
+    font-size: 2rem;
+    margin-left: 2rem;
+  }
+
+  .navbar a:first-child {
+    margin-top: 2rem;
+  }
+  header nav a::after {
+    transform-origin: 0 0;
+  }
+
+  header nav a:hover::after {
+    transform: scaleX(1);
+  }
+
+  /* .navbar a {
+    font-size: 2rem;
+    margin-top: 2rem;
+    margin-left: 1rem;
+  }
+
+  header nav a::after {
+    transform-origin: 0 0;
+  }
+*/
+  header #bars {
+    display: inline-block;
+  }
+}
+
+/* Mobile */
+@media (max-width: 450px) {
+  html {
+    font-size: 65%;
+  }
+
+  .icons {
+    font-size: 1.5rem;
+  }
+
+  h1 {
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .inputSection form .input {
+    gap: 1rem;
+  }
+
+  .inputInline input {
+    width: 1.2rem;
+  }
+
+  .inputInline label {
+    font-size: 120%;
+    margin-left: 8px;
+  }
+
+  button {
+    font-size: 1rem;
+  }
+
+  h4 {
+    font-size: 110%;
+  }
+
+  h4:last-child {
+    margin-bottom: 1rem;
+  }
+
+  .hScroll .cardContainer {
+    gap: 0px;
+  }
+
+  figure img {
+    width: 80%;
+  }
+
+  figcaption {
+    max-width: 80%;
+  }
+
+  .about .aboutContainer .cardAbout h4 {
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+
+  .about .aboutContainer .cardAbout p {
+    line-height: 1;
+  }
+}
